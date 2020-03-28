@@ -8,7 +8,7 @@
 
 
 class RoutePlanner {
-  public:
+public:
     RoutePlanner(RouteModel &model, float start_x, float start_y, float end_x, float end_y);
     // Add public variables or methods declarations here.
     float GetDistance() const {return distance;}
@@ -20,7 +20,7 @@ class RoutePlanner {
     std::vector<RouteModel::Node> ConstructFinalPath(RouteModel::Node *);
     RouteModel::Node *NextNode();
 
-  private:
+private:
     // Add private variables or methods declarations here.
     std::vector<RouteModel::Node*> open_list;
     RouteModel::Node *start_node;

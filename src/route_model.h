@@ -9,9 +9,9 @@
 
 class RouteModel : public Model {
 
-  public:
+public:
     class Node : public Model::Node {
-      public:
+    public:
         Node * parent = nullptr;
         float h_value = std::numeric_limits<float>::max();
         float g_value = 0.0;
@@ -26,7 +26,7 @@ class RouteModel : public Model {
         Node(){}
         Node(int idx, RouteModel * search_model, Model::Node node) : Model::Node(node), parent_model(search_model), index(idx) {}
 
-      private:
+    private:
         int index;
         Node * FindNeighbor(std::vector<int> node_indices);
         RouteModel * parent_model = nullptr;
@@ -36,8 +36,8 @@ class RouteModel : public Model {
     Node &FindClosestNode(float x, float y);
     auto &SNodes() { return m_Nodes; }
     std::vector<Node> path;
-    
-  private:
+
+private:
     void CreateNodeToRoadHashmap();
     std::unordered_map<int, std::vector<const Model::Road *>> node_to_road;
     std::vector<Node> m_Nodes;
